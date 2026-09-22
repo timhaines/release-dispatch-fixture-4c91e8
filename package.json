@@ -1,6 +1,6 @@
 {
   "name": "@timhaines/ref-unbound-publish-fixture",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Throwaway fixture for a coordinated disclosure. Not a real package.",
   "main": "index.js",
   "license": "MIT",

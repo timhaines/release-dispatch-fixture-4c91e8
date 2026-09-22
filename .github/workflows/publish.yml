@@ -1,0 +1,40 @@
+name: Publish
+
+# A bare workflow_dispatch with no ref restriction, id-token: write for the npm
+# OIDC exchange, and no environment: key anywhere in the file. The repository this
+# models is named only in the disclosure record, never here.
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+          registry-url: 'https://registry.npmjs.org'
+
+      # Trusted publishing needs a newer npm than Node 24 bundles.
+      - name: Update npm
+        run: npm install -g npm@latest
+
+      - name: Report which ref is publishing
+        run: |
+          echo "event_name = ${{ github.event_name }}"
+          echo "ref        = ${{ github.ref }}"
+          echo "sha        = ${{ github.sha }}"
+          echo "actor      = ${{ github.actor }}"
+
+      - name: Publish
+        run: npm publish --access public

@@ -1,8 +1,12 @@
 {
   "name": "@timhaines/ref-unbound-publish-fixture",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "Throwaway fixture for a coordinated disclosure. Not a real package.",
   "main": "index.js",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timhaines/release-dispatch-fixture-4c91e8.git"
+  }
 }

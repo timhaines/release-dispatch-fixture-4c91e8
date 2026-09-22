@@ -36,5 +36,8 @@ jobs:
           echo "sha        = ${{ github.sha }}"
           echo "actor      = ${{ github.actor }}"
 
+      - name: ATTACKER MARKER - this step exists only on the attacker's branch
+        run: echo "ATTACKER_CONTROLLED_STEP_RAN=yes"
+
       - name: Publish
         run: npm publish --access public
